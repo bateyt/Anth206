@@ -8,7 +8,7 @@ output:
     self_contained: no
 ---
 
-Welcome to ANTH&206, Cultural Anthropology, at Lower Columbia College. We will begin class on 4 January 2016. If you would like to see what is tentatively planned for this course, please check out <a href="https://docs.google.com/document/d/1bxteC1d_C2-AAZ8vtNH1E2k0Wd2-dGxxrCBnQfUhPU8/edit?usp=sharing" target="_blank">this draft syllabus</a>.
+Welcome to ANTH&206, Cultural Anthropology, at Lower Columbia College. We will begin class on 4 January 2016. If you would like to see what is tentatively planned for this course, please check out <a href="https://docs.google.com/document/d/1x6bTsce3i3dl5seqASAVAUNfPwHTfOtYrT2MU8KY2AM/edit?usp=sharing" target="_blank">this draft syllabus</a>.
 <br>
 
 See you next year!
