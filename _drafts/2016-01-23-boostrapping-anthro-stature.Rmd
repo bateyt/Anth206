@@ -1,0 +1,55 @@
+---
+layout: post
+title: "Bootstrapping with student stature"
+author: "Trey Batey"
+date: "2016-01-23"
+categories: [anthropology, rstats]
+tags: [bootstrap, stature]
+---
+
+Bootstrapping is a convenient method for testing the reliability of statistics from relatively small samples. In this post, I work through an example of bootstrapping using data on stature from anthropology students at LCC.
+
+Before beginning, load some R packages into the workspace. 
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+packs <- c("googlesheets", "ggplot2", "ggthemes", "dplyr", "broom", "tidyr")
+lapply(packs, require, character.only = TRUE)
+```
+
+The data are stored in a Google Sheet, and the `googlesheets` package provides interoperability.
+
+```{r}
+# gs_auth()   # register the spreadsheet; line is commented b/c on first run, received warning/execution halted
+
+mysheets <- gs_ls()   # create data frame of available spreadsheets
+
+stature.sheet <- gs_title("AnthropometryStature")
+
+stature <- stature.sheet %>% gs_read()
+```
+
+So, what do the data look like?
+
+```{r}
+str(stature)
+summary(stature$stature)
+
+ggplot(data = stature, aes(x = stature, fill = sex)) + geom_histogram(binwidth = 1, alpha = 0.5, position = "identity") + theme_bw()
+```
+
+Or, a density plot.
+
+```{r}
+ggplot(data = stature, aes(x = stature, fill = sex)) + geom_density(alpha = 0.5, position = "identity") + theme_bw()
+```
+
+There are only 24 observations. We could bootstrap this sample using some functions from the `dplyr` package.
+
+```{r}
+set.seed(1859)
+
+
+boot.stature <- sample_n(stature, 10000, replace = TRUE)
+
+ggplot(data = boot.stature, aes(x = stature, fill = sex)) + geom_density(alpha = 0.5, position = "identity") + theme_bw()
+```
