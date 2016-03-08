@@ -1,6 +1,6 @@
 # Site settings
 title: ANTH&206
-email: tbatey@my.lowercolumbia.edu
+email: tbatey@lowercolumbia.edu
 description: > # this means to ignore newlines until "baseurl:"
   A exploratory website and blog for ANTH&206 (Cultural Anthropology) at Lower Columbia College
 baseurl: "/Anth206" # the subpath of your site, e.g. /blog/
